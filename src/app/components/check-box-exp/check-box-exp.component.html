@@ -1,0 +1,7 @@
+<div *ngFor="let checkbox of checkboxes">
+	<input type="checkbox" [(ngModel)]="checkbox.checked" [value]="checkbox.value"><span>{{checkbox.name}}</span>
+</div>
+
+<button type="button" (click)="CheckAllOptions()">Toggle</button>
+
+<button (click) = "showSelected()"> Show Selected </button>

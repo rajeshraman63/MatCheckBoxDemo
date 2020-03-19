@@ -1,0 +1,34 @@
+<label class="btn btn-filter">
+    <input type="checkbox" name="allNonTrades" [value]="nontrade" (change)="allNonTrades($event)">All NonTrades
+</label>&nbsp;<br>
+
+<ng-container *ngFor="let ntrd of nontrade">
+    <label class="btn btn-filter">
+        <input type="checkbox" name="nontrades" [checked]="ntrd.selected"
+            (change)="changeTradesByCategory($event)">{{ ntrd.label }}
+    </label>&nbsp;
+    <br>
+</ng-container>
+
+
+
+<br>
+
+
+<label class="btn btn-filter">
+    <input type="checkbox" name="allTrades" [value]="trade" (change)="allTrades($event)">All Trades
+</label>&nbsp;
+<br>
+
+<ng-container *ngFor="let trd of trade">
+    <label class="btn btn-filter">
+        <input type="checkbox" name="trades" [checked]="trd.selected"
+            (change)="changeTradesByCategory($event)">{{ trd.label }}
+    </label>&nbsp;
+    <br>
+</ng-container>
+
+<br><br>
+<button (click)="showSelectedNonTrade()">NonTrade</button>
+&nbsp;
+<button (click)="showSelectedTrade()">Trade</button>

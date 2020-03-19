@@ -1,0 +1,72 @@
+<p>mat-check-box-demo works!</p>
+<div>
+
+
+<p>Total Row Entry in the table : {{ filteredData.length }} </p>
+
+<div class="table-responsive" style="height: 300px; overflow-y: auto;">
+
+    <table class="table table-hover table-bordered table-strip">
+        <thead>
+          <tr>
+          <td scope="col">
+              <mat-checkbox
+                  (change)="AllCheckBoxClickHandler($event)"
+                  [checked]="allCheckFlag"
+                >
+                </mat-checkbox>
+                Host
+          </td>
+          <td scope="col">Points To</td>
+          <td scope="col">TTL</td>
+          <td scope="col">Start &amp; End Date
+                  <i class="fa fa-arrow-up" aria-hidden="true"></i>
+                  <i class="fa fa-arrow-down" aria-hidden="true"></i>
+          </td>
+          <td scope="col">   </td>
+          </tr>
+      </thead>
+      <tbody>
+
+          <tr *ngFor="let tv of filteredData;let i=index">
+
+              <td>
+                      <mat-checkbox
+                          (change)="toggleSelection($event,tv,i)"
+                          [checked]="singleCheckArray[i]"
+                      >
+                    </mat-checkbox>
+    
+                    {{tv.host}}
+            
+              </td>
+
+              <td>
+                      {{tv.pointsTo}}
+              </td>
+
+              <td>
+                      {{tv.ttl}}
+              </td>
+
+              <td>
+                      {{tv.startEndDate}}
+              </td>
+
+              <td>
+                    <i class="fa fa-pencil cursor-pointer" aria-hidden="true"></i>
+                    &nbsp;
+                    &nbsp;
+                    <i class="fa fa-trash cursor-pointer" aria-hidden="true"></i>
+              </td>
+          </tr>
+      </tbody>
+    </table>
+
+</div>
+<br>
+<hr>
+<button (click)="showSelected()">Selected Row Data in the Console</button>
+
+
+</div>
